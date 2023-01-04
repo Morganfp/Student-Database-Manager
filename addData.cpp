@@ -11,6 +11,7 @@ void addFunc(sql::Connection* conn)
         // Prompt the user to select the table they want to add values to
         std::string input;
         std::cin >> input;
+        std::cout << "\n";
 
         // Add a course
         if(input == "c")
@@ -19,11 +20,20 @@ void addFunc(sql::Connection* conn)
             {  
                 // Prompt the user for the course values to be added to the Courses_T table
                 std::string prefix;
+                std::cout << "Enter the course prefix (e.g. CSC): ";
+                std::cin >> prefix;
+
                 int course_number;
+                std::cout << "Enter the course number (e.g. 30500): ";
+                std::cin >> course_number;
+
                 std::string course_title;
+                std::cout << "Enter the course title (e.g. Database Systems): ";
+                std::cin >> course_title;
+                
                 int credits;
-                std::cout << "Enter the course details: ";
-                std::cin >> prefix >> course_number >> course_title >> credits;
+                std::cout << "Enter the course credits: ";
+                std::cin >> credits;
 
                 std::cout << "\nInserting values ...";
                 std::cout.flush();
@@ -38,7 +48,7 @@ void addFunc(sql::Connection* conn)
                 pstmt->setInt(4, credits);
                 // Execute the query
                 pstmt->execute();
-                std::cout << "Done" << std::endl;
+                std::cout << "Done\n\n";
             }
 
             // Catch any SQL Exceptions
@@ -49,16 +59,19 @@ void addFunc(sql::Connection* conn)
             }
         }
 
-        // Grades
+        // Add a grade
         if(input == "g")
         {
             try
             {  
                 // Prompt the user for the grade values to be added to the Grades_T table
                 std::string type;
+                std::cout << "Enter the grade type (e.g. B+): ";
+                std::cin >> type;
+
                 double point_value;
-                std::cout << "Enter the grade: ";
-                std::cin >> type >> point_value;
+                std::cout << "Enter the point value (e.g. 3.5): ";
+                std::cin >> point_value;
 
                 std::cout << "\nInserting values ...";
                 std::cout.flush();
@@ -71,7 +84,7 @@ void addFunc(sql::Connection* conn)
                 pstmt->setDouble(2, point_value);
                 // Execute the query
                 pstmt->execute();
-                std::cout << "Done" << std::endl;
+                std::cout << "Done\n\n";
             }
 
             // Catch any SQL Exceptions
@@ -82,17 +95,23 @@ void addFunc(sql::Connection* conn)
             }
         }
 
-        // Semesters
+        // Add a semester
         if(input == "m")
         {
             try
             {  
                 // Prompt the user for the semester values to be added to the Semesters_T table
                 std::string code;
+                std::cout << "Enter the semester code (e.g. SP19): ";
+                std::cin >> code;
+
                 int year;
+                std::cout << "Enter the year (e.g. 2019): ";
+                std::cin >> year;
+
                 std::string description;
-                std::cout << "Enter the semester: ";
-                std::cin >> code >> year >> description;
+                std::cout << "Enter the season (e.g. Spring): ";
+                std::cin >> description;
 
                 std::cout << "\nInserting values ...";
                 std::cout.flush();
@@ -106,7 +125,7 @@ void addFunc(sql::Connection* conn)
                 pstmt->setString(3, description);
                 // Execute the query
                 pstmt->execute();
-                std::cout << "Done" << std::endl;
+                std::cout << "Done\n\n";
             }
 
             // Catch any SQL Exceptions
@@ -117,17 +136,23 @@ void addFunc(sql::Connection* conn)
             }
         }
 
-        // Students
+        // Add a student
         if(input == "s")
         {
             try
             {  
                 // Prompt the user for the student values to be added to the Students_T table
                 std::string last_name;
+                std::cout << "Enter the last name: ";
+                std::cin >> last_name;
+
                 std::string first_name;
+                std::cout << "Enter the first name: ";
+                std::cin >> first_name;
+
                 std::string phone_number;
-                std::cout << "Enter the student: ";
-                std::cin >> last_name >> first_name >> phone_number;
+                std::cout << "Enter the phone number: ";
+                std::cin >> phone_number;
 
                 std::cout << "\nInserting values ...";
                 std::cout.flush();
@@ -141,7 +166,7 @@ void addFunc(sql::Connection* conn)
                 pstmt->setString(3, phone_number);
                 // Execute the query
                 pstmt->execute();
-                std::cout << "Done" << std::endl;
+                std::cout << "Done\n\n";
             }
 
             // Catch any SQL Exceptions
@@ -152,20 +177,35 @@ void addFunc(sql::Connection* conn)
             }
         }
 
-        // Complete courses
+        // Add a course
         if(input == "t")
         {
             try
             {  
                 // Prompt the user for the completed coure values to be added to the Completed_Courses_T table
                 std::string last_name;
+                std::cout << "Enter the last name: ";
+                std::cin >> last_name;
+
                 std::string first_name;
+                std::cout << "Enter the first name: ";
+                std::cin >> first_name;
+
                 std::string course_prefix;
+                std::cout << "Enter the course prefix (e.g. CSC): ";
+                std::cin >> course_prefix;
+
                 int course_number;
+                std::cout << "Enter the course number (e.g. 30500): ";
+                std::cin >> course_number;
+
                 std::string course_grade;
+                std::cout << "Enter the grade earned (e.g. B): ";
+                std::cin >> course_grade;
+
                 std::string semester;
-                std::cout << "Enter the completed course: ";
-                std::cin >> last_name >> first_name >> course_prefix >> course_number >> course_grade >> semester;
+                std::cout << "Enter the semester code (e.g. SP19): ";
+                std::cin >> semester;
 
                 std::cout << "\nInserting values ...";
                 std::cout.flush();
@@ -188,7 +228,7 @@ void addFunc(sql::Connection* conn)
                 pstmt->setString(12, semester);
                 // Execute the query
                 pstmt->execute();
-                std::cout << "Done" << std::endl;
+                std::cout << "Done\n\n";
             }
 
             // Catch any SQL Exceptions
