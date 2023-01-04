@@ -9,7 +9,8 @@ Purpose: A program that uses a MySQL/C++ connector to build tables and run queri
 #include <iostream>
 #include <string>
 #include <mysql/jdbc.h>
-// Include the 
+
+// Include the modules needed
 #include "deleteData.cpp"
 #include "transcript.cpp"
 #include "listData.cpp"
