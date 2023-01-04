@@ -26,7 +26,7 @@ void transcriptFunc(sql::Connection* conn)
             sql::ResultSet* res = pstmt->executeQuery();
 
             // Print the returned values
-            std::cout << "\n\nTranscript for " << last_name << ", " << first_name << "\n"; 
+            std::cout << "\n\nTranscript for " << last_name << ", " << first_name << "\n\n"; 
             // While res has a next value
             while(res->next())
             {
