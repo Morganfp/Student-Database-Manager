@@ -11,6 +11,7 @@ void listFunc(sql::Connection* conn)
     // Prompt the user to select the table they want to print
     std::string input;
     std::cin >> input;
+    std::cout << "\n";
 
     // List courses
     if(input == "c")
@@ -24,7 +25,7 @@ void listFunc(sql::Connection* conn)
             sql::ResultSet* res = pstmt->executeQuery();
 
             // Print the table values
-            std::cout << "\nCourses Table\n";
+            std::cout << "Courses Table\n";
             // While res has a next value
             while(res->next())
             {
@@ -58,7 +59,7 @@ void listFunc(sql::Connection* conn)
             sql::ResultSet* res = pstmt->executeQuery();
 
             // Print the table values
-            std::cout << "\nGrades Table\n";
+            std::cout << "Grades Table\n";
             // While res has a next value
             while(res->next())
             {
@@ -90,7 +91,7 @@ void listFunc(sql::Connection* conn)
             sql::ResultSet* res = pstmt->executeQuery();
 
             // Print the table values
-            std::cout << "\nSemesters Table\n";
+            std::cout << "Semesters Table\n";
             // While res has a next value
             while(res->next())
             {
@@ -124,7 +125,7 @@ void listFunc(sql::Connection* conn)
             sql::ResultSet* res = pstmt->executeQuery();
 
             // Print the table values
-            std::cout << "\nStudents Table\n";
+            std::cout << "Students Table\n";
             // While res has a next value
             while(res->next())
             {
@@ -158,7 +159,7 @@ void listFunc(sql::Connection* conn)
             sql::ResultSet* res = pstmt->executeQuery();
 
             // Print the table values
-            std::cout << "\nCompleted Courses Table\n";
+            std::cout << "Completed Courses Table\n";
             // While res has a next value
             while(res->next())
             {
